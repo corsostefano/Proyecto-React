@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-const NavBars = () => {
+const NavBars = (props) => {
+  console.log(props)
   return (
     <nav className="nav">
       <div className="nav__container__inicio">
