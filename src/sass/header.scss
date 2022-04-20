@@ -8,7 +8,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-nav{
+#root > header > nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,8 +36,6 @@ nav{
     }
     .nav__container__categorias{
         margin-left: 3rem;
-        margin-right: 3rem;
-      
         ul{
             list-style: none;
             
@@ -45,6 +43,28 @@ nav{
                 a{
                     color: white;
                     margin-right: 1rem;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    width:  80px;
+                    height: 40px;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 10px;
+                    &:hover{
+                        background:rgb(0, 179, 255);
+                    }
+                }
+            }
+        }
+    }
+    .nav__container__cart{
+        margin-right: 2rem;
+        ul{
+            list-style: none;
+            li{
+                a{
+                    color: white;
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
