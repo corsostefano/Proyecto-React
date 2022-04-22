@@ -22,63 +22,49 @@
         border: none;
         cursor: pointer;
         border-radius: 10px;
-        ul{
-            list-style: none;
-            li{
-                a{
-                    color: black;
-                }
+            a{
+                color: black;
             }
-        }
         &:hover{
             background:rgb(0, 179, 255);
         }
     }
     .nav__container__categorias{
         margin-left: 3rem;
-        ul{
-            list-style: none;
-            
-            li{
-                a{
-                    color: white;
-                    margin-right: 1rem;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    width:  80px;
-                    height: 40px;
-                    border: none;
-                    cursor: pointer;
-                    border-radius: 10px;
-                    &:hover{
-                        background:rgb(0, 179, 255);
-                    }
+            a{
+                color: white;
+                margin-right: 1rem;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width:  80px;
+                height: 40px;
+                border: none;
+                cursor: pointer;
+                 border-radius: 10px;
+                &:hover{
+                    background:rgb(0, 179, 255);
                 }
             }
-        }
     }
     .nav__container__cart{
         margin-right: 2rem;
-        ul{
-            list-style: none;
-            li{
-                a{
-                    color: white;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    width:  80px;
-                    height: 40px;
-                    border: none;
-                    cursor: pointer;
-                    border-radius: 10px;
-                    &:hover{
-                        background:rgb(0, 179, 255);
-                    }
+            a{
+                color: white;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width:  80px;
+                height: 40px;
+                border: none;
+                cursor: pointer;
+                border-radius: 10px;
+                &:hover{
+                    background:rgb(0, 179, 255);
                 }
             }
-        }
+            
+        
     }
     .nav__container__login{
         display: inline-flex;
@@ -91,20 +77,11 @@
         cursor: pointer;
         border-radius: 10px;
         margin-right: 4rem;
-        ul{
-            list-style: none;
-            li{
-                a{
-                    color: black;
-                }
+            a{
+                color: black;
             }
-        }
         &:hover{
             background:rgb(0, 179, 255);
         }
     }
-    
-   
-    
-    
 }

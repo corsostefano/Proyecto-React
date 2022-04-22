@@ -8,41 +8,21 @@ const NavBars = (props) => {
     return (
       <nav className="nav">
         <div className="nav__container__categorias">
-          <ul>
-            <li>
-              <a href="#">{props.nombre}</a>
-            </li>
-          </ul>
+          <a href="#">{props.nombre}</a> 
         </div>
         <div className="nav__container__inicio">
-          <ul>
-            <li>
-              <a href="#" className="nav__link__inicio" >Inicio</a>
-            </li>
-          </ul>
+          <a href="#" className="nav__link__inicio" >Inicio</a>
         </div>
         <div className="nav__container__categorias">
-          <ul>
-            <li>
-              <a href="#" className="nav__link__categorias">Vehiculos</a>
-              <a href="#" className="nav__link__categorias">Electronica</a>
-              <a href="#" className="nav__link__categorias">Libros</a>
-            </li>
-          </ul>
+          <a href="#" className="nav__link__categorias">link 1</a>
+          <a href="#" className="nav__link__categorias">link 2</a>
+          <a href="#" className="nav__link__categorias">link 3</a>
         </div>
         <div className="nav__container__cart">
-          <ul>
-            <li>
-              <a href="#"><CartWidget/></a>
-            </li>
-          </ul>
+          <a href="#"><CartWidget/></a>
         </div>
         <div className="nav__container__login">
-          <ul>
-            <li>
-              <a href="#" className="nav__link__login" >Login</a>
-            </li>
-          </ul>
+          <a href="#" className="nav__link__login" >Login</a>
         </div>
       </nav>
     )
@@ -50,15 +30,11 @@ const NavBars = (props) => {
     return (
       <nav className="nav">
         <div className="nav__container__categorias">
-          <ul>
-            <li>
-              <a href="#" className="nav__link__categorias">Vehiculos</a>
-              <a href="#" className="nav__link__categorias">Electronica</a>
-              <a href="#" className="nav__link__categorias">Libros</a>
-              <a href="#" className="nav__link__categorias">Contactame</a>
-              <a href="#" className="nav__link__categorias">faq</a>
-            </li>
-          </ul>
+            <a href="#" className="nav__link__categorias">link 1</a>
+            <a href="#" className="nav__link__categorias">link 2</a>
+            <a href="#" className="nav__link__categorias">link 3</a>
+            <a href="#" className="nav__link__categorias">Contactame</a>
+            <a href="#" className="nav__link__categorias">faq</a>
         </div>
       </nav>
     )

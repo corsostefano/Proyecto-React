@@ -1,0 +1,54 @@
+.item__card__agregar{
+    margin: 20px;
+    width: 320px;
+    height: 195px;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #535353;  
+    display: block;
+    justify-content: center; 
+    padding: 13px;
+    .item__count{
+        width: 292px;
+        height: 46px;
+        margin-top: 50px;
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .item__count__button {
+        color: #4887ec;
+        font-size: 30px;
+        width: 35px;
+        height: 35px;
+        background-color: white;
+        border: none;
+        cursor: pointer;
+        margin-top: -4px;
+        &:hover{
+            background-color: #f7f7f7;
+            border-radius: 5px;
+        }
+    }
+    .item__container__button__agregar{
+        margin-top: 10px;
+        width: 100%;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+    }
+    .button__agregar__carrito{
+        width: 292px ;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #4887ec;
+        border-color: #4887ec;
+        border-style: solid;
+        &:hover{
+            background-color: #d0e0f9;
+        }
+    }
+}

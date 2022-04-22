@@ -10,7 +10,7 @@ const Header = () => {
         <header className="header">
                 <h1 className="header__titulo">Ecommerce</h1>
                 <NavBars 
-                    nombre="stefano" 
+                    nombre="Stefano" 
                     apellido="corso" 
                     edad={edad} 
                     onAdd={saludo}
