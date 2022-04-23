@@ -1,26 +1,34 @@
 import { useState } from "react"
 
-const ItemCount = () => {
-    const [count, setCount] =useState (0)
+const ItemCount = (props) => {
+    const [count, setCount] =useState(props.initial)
 
     const sumaCount = () => {
-        setCount (count + 1)
+        if (count < props.stock){
+            setCount (count + 1)
+        }
     }
     const restaCount = () => {
-        setCount (count - 1)
+        if(count > 0){
+            setCount (count - 1)
+        }
+    }
+    const agregar = () => {
+        props.onAdd(count)
+        console.log(count)
     }
 
   return (
     <>
-        <div class="item__card__agregar">
-            <h2 class="titulo__producto">Producto</h2>
-            <div class="item__count">
-                <button class="item__count__button" onClick={restaCount}>-</button>
+        <div className="item__card">
+            <h2 className="titulo__producto">Producto</h2>
+            <div className="item__count">
+                <button className="item__count__button material-icons" onClick={restaCount}>remove</button>
                 <h1>{count}</h1>
-                <button class="item__count__button" onClick={sumaCount}>+</button>
+                <button className="item__count__button material-icons" onClick={sumaCount}>add</button>
             </div>
-            <div class="item__container__button__agregar">
-                <button class="button__agregar__carrito">Agregar al carrito</button>
+            <div className="item__container__button__agregar">
+                <button className="button__agregar__carrito " onClick={agregar}>Agregar al carrito</button>
             </div>
         </div>
     </>
