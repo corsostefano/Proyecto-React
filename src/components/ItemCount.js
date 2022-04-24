@@ -9,7 +9,7 @@ const ItemCount = (props) => {
         }
     }
     const restaCount = () => {
-        if(count > 0){
+        if(count > 1){
             setCount (count - 1)
         }
     }
