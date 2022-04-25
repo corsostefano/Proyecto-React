@@ -3,7 +3,7 @@ import { useState } from "react"
 const ItemCount = ({stock, initial, onAdd}) => {
     const [count, setCount] =useState(initial)
     const [confirmado, setConfirmado] =useState(false)
-    const [isOpen, setIsOpen] =useState(false)
+    
     
 
     const sumaCount = () => {
@@ -25,7 +25,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         setConfirmado(false)    
     }
     const close = () =>{
-        setIsOpen(!isOpen)
+        setConfirmado(false)
     }
 
     if(!confirmado){
@@ -59,7 +59,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                         <button className="button__agregar__carrito " onClick={agregar}>Agregar al carrito</button>
                     </div> 
                 </div>
-                <div className= {`item__card__modal ${isOpen ? 'item__card__modal__active' : '' } `} >
+                <div className= "item__card__modal" >
                         <button className="button__close material-icons" onClick={close}>close</button>
                         <p className="modal__parrafo" >Se confirmaron {count} unidades!</p>
                         <button className="button__cancelar" onClick={cancelar}>Cancelar</button>
