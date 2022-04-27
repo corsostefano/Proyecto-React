@@ -1,7 +1,9 @@
-.item__card{
-    margin: 20px;
-    width: 320px;
-    height: 195px;
+.item__count{
+    margin-left: auto ;
+    margin-right: auto;
+    margin-top: 5px;
+    width: 196px;
+    height: 150px;
     background-color: #f7f7f7;
     border-radius: 10px;
     font-size: 14px;
@@ -9,20 +11,11 @@
     display: block;
     justify-content: center; 
     align-items: center;
-    padding: 13px;
+    padding: 5px;
     overflow: hidden;
-    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-    &:hover{
-        box-shadow: 5px 5px 20px   rgba(0, 0, 0, 0.4);
-        transform: translateY(-3%);
-    }
-    .titulo__producto{
-        text-align: center;
-    }
-    .item__count{
-        width: 292px;
+    .item__count__barra{
+        width: 100%;
         height: 46px;
-        margin-top: 50px;
         background-color: white;
         display: flex;
         justify-content: space-between;
@@ -33,7 +26,6 @@
         &:hover{
             box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
         }
-        
     }
     .item__count__button {
         color: #4887ec;
@@ -59,53 +51,6 @@
     }
     .button__agregar__carrito{
         width: 292px ;
-        border-radius: 10px;
-        cursor: pointer;
-        color: #4887ec;
-        border-color: #4887ec;
-        border-style: solid;
-        &:hover{
-            background-color: #d0e0f9;
-        }
-    }
-}
-.item__card__modal{
-    width: 300px;
-    height: 130px;
-    position: fixed;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-    .button__close{
-        position: absolute;
-        top: 5px;
-        right: 10px;
-        display: inline-block;
-        width: 28px;
-        height: 28px;
-        background-color:white;
-        color: #4887ec;
-        line-height: 25px;
-        cursor: pointer;
-        border-radius: 5px;
-        border-color: #4887ec;
-        &:hover{
-            background-color: #d0e0f9;
-        }
-    }
-    .button__cancelar{
-        width: 200px ;
-        height: 30px;
         border-radius: 10px;
         cursor: pointer;
         color: #4887ec;

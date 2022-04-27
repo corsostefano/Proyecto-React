@@ -31,9 +31,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
     }
         return (
             <>
-                <div className="item__card">
-                    <h2 className="titulo__producto">Producto</h2>
-                    <div className="item__count">
+                <div className="item__count">
+                    
+                    <div className="item__count__barra">
                         <button className="item__count__button material-icons" onClick={restaCount}>remove</button>
                         <h1>{count}</h1>
                         <button className="item__count__button material-icons" onClick={sumaCount}>add</button>
@@ -45,9 +45,9 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 {
                     confirmed && (
                         <ModalItem 
-                        close = {close}
-                        count = {count}
-                        cancel = {cancel}/>
+                            close = {close}
+                            count = {count}
+                            cancel = {cancel}/>
                     )
                 }
             </>

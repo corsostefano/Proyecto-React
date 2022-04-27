@@ -6,7 +6,6 @@ const ModalItem = ({close, count, cancel}) => {
             <p className="modal__parrafo" >Se confirmaron {count} unidades!</p>
             <button className="button__cancelar" onClick={cancel}>Cancelar</button>
         </div>
-
     </>
   )
 }
