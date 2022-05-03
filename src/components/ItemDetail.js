@@ -1,7 +1,7 @@
+const ItemDetail = ({products}) => {
 
-const Item = ({products}) => {
   return (
-      <>
+    <>
         <article className="item__card">
             <div className="item__card__img">
               <img src={products.picture} alt={products.picture} />
@@ -17,16 +17,6 @@ const Item = ({products}) => {
             </div>
         </article>
       </>
-    );
+  )
 }
-export default Item
-/*
-<div className="card">
-<img src={picture} className="card-img-top" alt={picture} />
-<div className="card-body">
-  <h5 className="card-title">{title}</h5>
-  <p className="card-text">Precio: Ars {price}</p>
-  <ItemCount stock={stock} initial={1} />
-</div>
-</div>
-*/
+export default ItemDetail

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import ItemList from "./ItemList"
+import ItemDetail from "./ItemDetail"
 import ProductsList from "./ProductsList"
 
 
-const ItemListContainer = () => {
+const ItemDetailContainer = ({ id }) => {
+
   
-  const [cargando, setCargando] =  useState(true)
   const [products, setProducts] = useState([])
 
   useEffect(()=>{
@@ -18,27 +18,24 @@ const ItemListContainer = () => {
     getProducts
     .then(() =>{
       console.log("termino el pedido bien!")
-      setCargando(false)
       setProducts(ProductsList)
       
     })
   },[])
 
-  if(cargando){
-    return(
-     <p>Cargando...</p>
-    )
-  }else{
-    return (
-      <>
-        <ItemList products={products}  />
-      </>
-    )
-  }
-}
+  const productfiltered = products.find((x) => x.id === id);
 
-export default ItemListContainer
+  return (
+    <div>
+      {productfiltered ? (
+        <ItemDetail products={productfiltered} />
+      ) : (
+        <p>Cargando...</p>
+      )}
+    </div>
+  );
+};
+            
+         
 
-
-
-
+export default ItemDetailContainer

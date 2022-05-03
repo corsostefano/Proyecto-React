@@ -1,7 +1,7 @@
 .item__card{
     margin: 10px;
     width: 224px;
-    height: 425px;
+    height: 400px;
     background-color: #f7f7f7;
     border-radius: 10px;
     font-size: 14px;
@@ -15,6 +15,7 @@
     box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
     &:hover{
         box-shadow: 5px 5px 20px   rgba(0, 0, 0, 0.4);
+        transform: scale(1.1);
     }
     .item__card__img{
         display: flex;
@@ -37,7 +38,11 @@
         }
     }
     .item__card__product{
-        padding: 5px;
+        margin-top: 10px;
+        width: 100%;
+        height: 45px;
+        display: block;
+        justify-content: center;
         .item__card__title{
             padding: 10px;
             font-size: 14px;
@@ -45,6 +50,23 @@
         .item__card__price{
             font-size: 24px;
             font-weight: bold;
+        }
+        .item__card__category{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .item__button__detalles{
+            width: 200px ;
+            height: 30px;
+            margin-top: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #4887ec;
+            border-color: #4887ec;
+            border-style: solid;
+            &:hover{
+                background-color: #d0e0f9;
+            }
         }
     }
 }
