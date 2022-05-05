@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 import ItemList from "./ItemList"
+import Loading from "./Loading"
 import ProductsList from "./ProductsList"
-
 
 const ItemListContainer = () => {
   
-  const [cargando, setCargando] =  useState(true)
+  const [loading, setLoading] =  useState(true)
   const [products, setProducts] = useState([])
 
   useEffect(()=>{
@@ -18,23 +18,24 @@ const ItemListContainer = () => {
     getProducts
     .then(() =>{
       console.log("termino el pedido bien!")
-      setCargando(false)
+      setLoading(false)
       setProducts(ProductsList)
       
     })
   },[])
 
-  if(cargando){
-    return(
-     <p>Cargando...</p>
-    )
-  }else{
-    return (
-      <>
-        <ItemList products={products}  />
-      </>
-    )
-  }
+  return (
+    <>
+        <div>
+          <ItemList products={products} />   
+        </div>
+        {
+            loading && (
+              <Loading/>
+            )
+        }
+    </>
+  )
 }
 
 export default ItemListContainer

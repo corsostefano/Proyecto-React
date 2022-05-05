@@ -1,41 +1,46 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
+import Loading from "./Loading"
 import ProductsList from "./ProductsList"
 
 
-const ItemDetailContainer = ({ id }) => {
+const ItemDetailContainer = () => {
 
-  
-  const [products, setProducts] = useState([])
+  const [loading, setLoading] =  useState(true)
+  const [products, setProducts] = useState({})
+  const {id} = useParams()
 
-  useEffect(()=>{
-  
-    const getProducts = new Promise((res) =>{
-      setTimeout(()=>{
-        res(ProductsList)
-      },2000 )
+  useEffect(() => {
+    const getProducts = new Promise((res)=>{
+      setTimeout(() => {
+        const resultado = ProductsList.find((x) => x.id === id)
+        res (resultado)
+      },2000)
     })
     getProducts
-    .then(() =>{
-      console.log("termino el pedido bien!")
-      setProducts(ProductsList)
-      
+    .then((repuesta) =>{
+      setProducts(repuesta)
+      setLoading(false)
     })
-  },[])
+   
+    
+  },[id])
 
-  const productfiltered = products.find((x) => x.id === id);
 
   return (
-    <div>
-      {productfiltered ? (
-        <ItemDetail products={productfiltered} />
-      ) : (
-        <p>Cargando...</p>
-      )}
-    </div>
-  );
-};
-            
-         
+    <>
+        <div>
+          <ItemDetail products={products} />   
+        </div>
+        {
+            loading && (
+              <Loading/>
+            )
+        }
+    </>
+  )
+}
+
 
 export default ItemDetailContainer

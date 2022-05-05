@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Item = ({products}) => {
   return (
@@ -13,7 +14,7 @@ const Item = ({products}) => {
                 <p className="item__card__category"> Categoria: {products.category.map(category=>{
                   return <span>{category}</span> })}
                  </p>
-                <button className="item__button__detalles" >Detalles</button>
+                 <Link to={`/product/${products.id}`}><button className="item__button__detalles" >Detalles</button></Link>
             </div>
         </article>
       </>
