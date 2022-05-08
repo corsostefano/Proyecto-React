@@ -3,14 +3,14 @@ import Item from "./Item"
 const ItemList = ({listProduct}) => {
   return (
     <section className="list__container">
-        {listProduct.map(item => (
-            <div key={item.id}>
+        {listProduct.map(product => (
+            <div key={product.id}>
                 <Item 
-                    key={item.id}
-                    id={item.id}
-                    title={item.title}
-                    price={item.price}
-                    pictureUrl={item.pictureUrl}
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    price={product.price}
+                    pictureUrl={product.pictureUrl}
                 />
 
             </div>

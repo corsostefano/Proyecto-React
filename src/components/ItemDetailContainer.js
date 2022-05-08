@@ -25,16 +25,17 @@ const ItemDetailContainer = () => {
             ?
             <Loading/>
             :
-            <div>
+            <section className="list__container__detail">
                 <ItemDetail
                  key={product.id} 
                  title={product.title} 
                  price={product.price} 
                  pictureUrl={product.pictureUrl} 
                  description={product.description}
+                 stock={product.stock}
                 />
 
-            </div>
+            </section>
         }
     </article>
   )
