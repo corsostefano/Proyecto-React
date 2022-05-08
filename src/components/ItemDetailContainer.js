@@ -1,46 +1,42 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import fetchProductos from "../mock-api/Promise"
 import ItemDetail from "./ItemDetail"
 import Loading from "./Loading"
-import ProductsList from "./ProductsList"
-
 
 const ItemDetailContainer = () => {
+    const [product, setProduct] = useState({})
+    const [load, setLoad] = useState(true)
+    const {id} = useParams()
 
-  const [loading, setLoading] =  useState(true)
-  const [products, setProducts] = useState({})
-  const {id} = useParams()
-
-  useEffect(() => {
-    const getProducts = new Promise((res)=>{
-      setTimeout(() => {
-        const resultado = ProductsList.find((x) => x.id === id)
-        res (resultado)
-      },2000)
-    })
-    getProducts
-    .then((repuesta) =>{
-      setProducts(repuesta)
-      setLoading(false)
-    })
-   
-    
-  },[id])
-
+    useEffect(() => {
+        fetchProductos().then(productos => {
+            let byId = productos.find(element => element.id === parseInt(id))
+            setProduct(byId)
+            setLoad(false)
+        }).catch(console.log)
+        console.log("useEffect")
+    },[id])
 
   return (
-    <>
-        <div>
-          <ItemDetail products={products} />   
-        </div>
+    <article>
         {
-            loading && (
-              <Loading/>
-            )
+            load
+            ?
+            <Loading/>
+            :
+            <div>
+                <ItemDetail
+                 key={product.id} 
+                 title={product.title} 
+                 price={product.price} 
+                 pictureUrl={product.pictureUrl} 
+                 description={product.description}
+                />
+
+            </div>
         }
-    </>
+    </article>
   )
 }
-
-
 export default ItemDetailContainer

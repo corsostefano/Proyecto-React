@@ -1,18 +1,21 @@
-//import React, {useState, useEffect} from "react"
-
 import Item from "./Item"
 
-const ItemList = ({products}) =>{
+const ItemList = ({listProduct}) => {
+  return (
+    <section className="list__container">
+        {listProduct.map(item => (
+            <div key={item.id}>
+                <Item 
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    price={item.price}
+                    pictureUrl={item.pictureUrl}
+                />
 
-    return(
-        <section className="list__container">
-            {products.map(products=>{
-                return(
-                    <Item key={products.id} products={products}/>
-                )
-            })}
-        </section>
-       
-    )
+            </div>
+        ))}        
+    </section>
+  )
 }
 export default ItemList
