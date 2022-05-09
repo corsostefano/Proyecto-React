@@ -27,22 +27,25 @@ const ItemListContainer = () => {
   return (
       
     <>
-       <div>
+    {
+        load ?
+        <Loading/>
+        :
+        <ItemList  listProduct={product}/>
+    }
+       
+    </>
+  )
+}
+export default ItemListContainer
+
+
+
+/*<div>
           <ItemList  listProduct={product} />   
         </div>
         {
             load && (
                 <Loading/>
             )
-        }
-    </>
-  )
-}
-export default ItemListContainer
-
-/*<>
-<div> 
-<ItemList listProduct={prod}/>      
-</div>
-{load &&  (<p>cargando</p>) }
-</>*/
+        }*/
