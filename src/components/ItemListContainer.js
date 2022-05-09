@@ -6,21 +6,21 @@ import Loading from "./Loading"
 
 
 const ItemListContainer = () => {
-    const [prod, setProd] = useState([])
+    const [product, setProduct] = useState([])
     const [load, setLoad]= useState(true)
     const {id} = useParams()
 
     useEffect(() => {
         fetchProductos().then(productos => {
-            let byIdAll = id ? productos.filter(element => element.category === id) : productos
-            setProd(byIdAll)
+            let productById = id ? productos.filter(element => element.category === id) : productos
+            setProduct(productById)
             setLoad(false)
         })
         return() => {
             setLoad(true)
         }
     },[id])
-    console.log(prod)
+    console.log(product)
 
 
 
@@ -28,7 +28,7 @@ const ItemListContainer = () => {
       
     <>
        <div>
-          <ItemList  listProduct={prod} />   
+          <ItemList  listProduct={product} />   
         </div>
         {
             load && (
