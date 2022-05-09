@@ -5,6 +5,7 @@ import fetchProductos from "../mock-api/Promise"
 import Loading from "./Loading"
 
 
+
 const ItemListContainer = () => {
     const [product, setProduct] = useState([])
     const [load, setLoad]= useState(true)
@@ -41,11 +42,3 @@ export default ItemListContainer
 
 
 
-/*<div>
-          <ItemList  listProduct={product} />   
-        </div>
-        {
-            load && (
-                <Loading/>
-            )
-        }*/

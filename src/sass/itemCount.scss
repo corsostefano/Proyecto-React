@@ -3,7 +3,7 @@
     margin-right: auto;
     margin-top: 5px;
     width: 100%;
-    height: 150px;
+    height: auto;
     background-color: #f7f7f7;
     border-radius: 10px;
     font-size: 14px;
@@ -49,6 +49,7 @@
         display: flex;
         justify-content: center;
     }
+   
     .button__agregar__carrito{
         width: 292px ;
         border-radius: 10px;
@@ -60,4 +61,30 @@
             background-color: #d0e0f9;
         }
     }
+    .item__container__button__finalizar{
+        margin-top: 10px;
+        width: 100%;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        .button__agregar__finalizar{
+            width: 279px ;
+            height: 45px;
+            border-radius: 10px;
+            cursor: pointer;
+            color: #4887ec;
+            border-color: #4887ec;
+            border-style: solid;
+            &:hover{
+                background-color: #d0e0f9;
+            }
+        }
+
+    }  
+}
+.item__count > p{
+    display: flex;
+    color: #00a650;
+    line-height: 20.8px;
+    text-align: center;
 }
