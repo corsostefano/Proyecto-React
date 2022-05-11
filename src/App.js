@@ -1,20 +1,13 @@
-//Se Importa NavBars "Contiene Header => Nav "Menu"
-import Header from "./components/Header"
-//Se Importa Main
-import Main from "./components/Main"
-//Se Importa Footer
-import Footer from "./components/Footer"
-import {BrowserRouter} from "react-router-dom"
-
-
+import { CartProvider } from "./context/CartContext"
+import RouterApp from "./router/RouterApp"
 
 const App = () => {
     return (
-        <BrowserRouter>
-            <Header/>  
-            <Main/>
-            <Footer/>
-        </BrowserRouter>
+       <>
+        <CartProvider>
+            <RouterApp/> 
+        </CartProvider>    
+       </>
     )
   }
    export default App
