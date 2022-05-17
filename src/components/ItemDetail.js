@@ -1,14 +1,18 @@
 
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
 import ItemCount from "./ItemCount"
+import { CartContext } from "../context/CartContext"
 
 const ItemDetail = ({ title, price, pictureUrl, description, stock }) => {
 
+    const {addItem} = useContext(CartContext)
+
     const [add, setAdd] =useState(false)
 
-    const onAdd = () =>{
-      setAdd(!add)
+    const onAdd = (quantity) =>{
+      setAdd(!add + quantity)
+      addItem({title, price, pictureUrl, description, stock}, quantity )
     }
     const formatMoney = (num) =>{
       if (num){
@@ -66,5 +70,3 @@ const ItemDetail = ({ title, price, pictureUrl, description, stock }) => {
   )
 }
 export default ItemDetail
-
-// !add ?? <ItemCount stock={stock} initial={1}  onAdd={onAdd} />

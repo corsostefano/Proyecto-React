@@ -1,0 +1,9 @@
+.cart__widget{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .cart__widget__count{
+        margin-top: -30px;
+        font-size: 12px;
+    }
+}

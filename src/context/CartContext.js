@@ -27,8 +27,16 @@ export const CartProvider = ({ children }) => {
 
     const clearAllItems = () => setItems([]);
 
+    const countItemQuantity = () =>{
+      let count = 0;
+      for (const iterator of items){
+          count += iterator.quantity;
+      }
+      return count;
+    }
+
     return (
-      <CartContext.Provider value={{ items, setItems, addItem, removeItem, clearAllItems }}>
+      <CartContext.Provider value={{ items, setItems, addItem, removeItem, clearAllItems, countItemQuantity }}>
         {children}
       </CartContext.Provider>
     );

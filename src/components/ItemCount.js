@@ -15,6 +15,11 @@ const ItemCount = ({stock, initial, onAdd}) => {
             setCount (count - 1)
         }
     }
+
+    const handleClick_add = () => {
+        onAdd(count)
+    }
+
         return (
             <>
                     <div className="item__count__barra">
@@ -23,7 +28,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                         <button className="item__count__button material-icons" onClick={sumaCount}>add</button>
                     </div>
                     <div className="item__container__button__agregar">
-                            <button className="button__agregar__carrito" onClick={() => onAdd()}> Agregar al carrito</button>
+                            <button className="button__agregar__carrito" onClick={handleClick_add}> Agregar al carrito</button>
                     </div>
                 
             </>
