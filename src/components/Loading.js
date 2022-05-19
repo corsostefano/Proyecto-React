@@ -1,8 +1,9 @@
-import { PropagateLoader } from "react-spinners"
+import { HashLoader } from "react-spinners"
 
 const Loading = () => {
   return (
-    <div><PropagateLoader color={"#1584EE"}  size={20}/></div>
+    <div><HashLoader color={"#1584EE"}  size={75}/></div>
   )
 }
 export default Loading
+

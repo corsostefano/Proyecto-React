@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import ItemCount from "./ItemCount"
 import { CartContext } from "../context/CartContext"
 
-const ItemDetail = ({ title, price, pictureUrl, description, stock }) => {
+const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
 
     const {addItem} = useContext(CartContext)
 
@@ -12,14 +12,13 @@ const ItemDetail = ({ title, price, pictureUrl, description, stock }) => {
 
     const onAdd = (quantity) =>{
       setAdd(!add + quantity)
-      addItem({title, price, pictureUrl, description, stock}, quantity )
+      addItem({ id, title, price, pictureUrl, description, stock}, quantity )
     }
     const formatMoney = (num) =>{
       if (num){
         return "$ " + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
       }
     }
-
   return (
     <>
       <div className="item__detail__container">

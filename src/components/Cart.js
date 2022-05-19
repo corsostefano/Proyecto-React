@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react"
 import { CartContext } from "../context/CartContext"
-import NumberFormat from "react-number-format";
 import { Link } from "react-router-dom";
 
 const Cart = () => {
@@ -10,6 +9,12 @@ const Cart = () => {
   useEffect(() => {
     setItems(items); 
   },[items, setItems]);
+
+  const formatMoney = (num) =>{
+    if (num){
+      return "$ " + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+    }
+  }
 
   if(items.length !== 0){
     return(
@@ -53,23 +58,13 @@ const Cart = () => {
                         {element.quantity}
                       </td>
                       <td>
-                        <NumberFormat
-                          value={element.item.price}                                                  
-                          displayType={'text'}
-                          thousandSeparator={true}
-                          prefix={'$'} 
-                          />
+                        {formatMoney(element.item.price)}
                       </td>
                       <td>
-                        <NumberFormat
-                          value={element.item.price * element.quantity}
-                          displayType={'text'}
-                          thousandSeparator={true}
-                          prefix={'$'} 
-                        />      
+                        {formatMoney(element.item.price * element.quantity)} 
                       </td>
                       <td>
-                        ${acumuladorTotal += element.item.price * element.quantity}
+                        {formatMoney(acumuladorTotal += element.item.price * element.quantity)}
                       </td>
                       <td>
                         <button onClick={() => removeItem(element.item.id)} >
@@ -84,13 +79,7 @@ const Cart = () => {
                   <td>
                     <h2 className="cart__total">
                       <span>
-                        Total:
-                          <NumberFormat
-                            value={acumuladorTotal}
-                            displayType={'text'}
-                            thousandSeparator={true}
-                            prefix={'$'} 
-                          />  
+                        Total: {formatMoney(acumuladorTotal)}
                       </span>
                     </h2>
                   </td>

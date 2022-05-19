@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import fetchProductos from "../mock-api/Promise"
 import ItemDetail from "./ItemDetail"
 import Loading from "./Loading"
+import { db } from "../firebase/firebaseConfig"
+import { collection, getDocs, query, where, documentId } from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
     const [product, setProduct] = useState({})
@@ -10,14 +11,27 @@ const ItemDetailContainer = () => {
     const {id} = useParams()
 
     useEffect(() => {
-        fetchProductos().then(productos => {
-            let byId = productos.find(element => element.id === parseInt(id))
-            setProduct(byId)
-            setLoad(false)
-        }).catch(console.log)
-        console.log("useEffect")
-    },[id])
+        const getProductDetails = async () => {
+            try {
+                const dbRef = collection(db, 'products');
 
+                const consulta = query(dbRef, where(documentId(dbRef), "==", id));
+                const data = await getDocs(consulta);
+                setProduct(data.docs.map(doc => (
+                    {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                )));
+
+                setLoad(false);
+            } catch(err) {
+                console.log('Error', err);
+            };
+        };
+
+        getProductDetails();
+    }, [id]);
   return (
     <article>
         {
@@ -28,6 +42,7 @@ const ItemDetailContainer = () => {
             <section className="list__container__detail">
                 <ItemDetail
                  key={product.id} 
+                 id= {product.id} 
                  title={product.title} 
                  price={product.price} 
                  pictureUrl={product.pictureUrl} 
