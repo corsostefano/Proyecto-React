@@ -1,10 +1,85 @@
 import { useContext, useEffect } from "react"
 import { CartContext } from "../context/CartContext"
 import { Link } from "react-router-dom";
+import { db } from "../firebase/FirebaseConfig";
+import { collection, addDoc, getDocs, query, where, documentId, writeBatch, Timestamp } from "firebase/firestore";
 
 const Cart = () => {
-  const {items, setItems, removeItem, clearAllItems} =useContext(CartContext);
+
+  const addDocToCollection = () => {
+    const collectionRef = collection(db, 'users')
+
+    const objUser = {
+      name: "Stefano ",
+      phone: "11246584",
+      email: "stefanocorso@gmail.com",
+      date: Timestamp.fromDate(new Date())
+    }
+
+    addDoc(collectionRef, objUser)
+        .then(response => {
+            console.log(response.id)
+        })
+}
+
+  const {items, setItems, removeItem, clearAllItems,countItemQuantity} =useContext(CartContext);
   let acumuladorTotal = 0;
+
+  const generateOrder = () => {
+    addDocToCollection()
+
+    const objOrder = {
+        items: items,
+        buyer: {
+            name: "Stefano ",
+            phone: "11246584",
+            email: "stefanocorso@gmail.com"
+        },
+        total: countItemQuantity(),
+        date: new Date()
+    }
+
+    const ids = items.map(prod => prod.id)
+
+    const batch = writeBatch(db)
+
+    const collectionRef = collection(db, 'products')
+
+    const outOfStock = []
+
+    getDocs(query(collectionRef, where(documentId(), 'in', ids)))
+        .then(response => {
+            response.docs.forEach(doc => {
+                const dataDoc = doc.data()
+                const prodQuantity = items.find(prod => prod.id === doc.id)?.quantity
+
+                if (dataDoc.stock >= prodQuantity) {
+                    batch.update(doc.ref, { stock: dataDoc.stock - prodQuantity })
+                } else {
+                    outOfStock.push({ id: doc.id, ...dataDoc })
+                }
+            })
+        })
+        .then(() => {
+            if (outOfStock.length === 0) {
+                const collectionRef = collection(db, 'orders')
+                return addDoc(collectionRef, objOrder)
+            } else {
+                return Promise.reject(({ name: 'outofStockError', products: outOfStock }))
+            }
+        })
+        .then(({ id }) => {
+            batch.commit()
+            console.log(`El id de la orden es ${id}`)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+        .finally(() => {
+          clearAllItems()
+           
+        })
+  }
 
   useEffect(() => {
     setItems(items); 
@@ -91,7 +166,10 @@ const Cart = () => {
                 </tr>
               </tbody>
             </table>
-            <button onClick={ () => clearAllItems()}>Vaciar Carrito</button>
+            <div className="cart__list__items_vaciar__finalizar">
+              <button onClick={ () => clearAllItems()}>Vaciar Carrito</button>
+              <button onClick={ () => generateOrder()}>Finalizar compra</button>
+            </div>
           </div>
         </div>
       </>

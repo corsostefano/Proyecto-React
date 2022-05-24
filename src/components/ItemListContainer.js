@@ -2,22 +2,20 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
 import Loading from "./Loading"
-import { db } from "../firebase/firebaseConfig"
+import { db } from "../firebase/FirebaseConfig"
 import { collection, getDocs, query, where } from 'firebase/firestore';
-
-
 
 
 const ItemListContainer = () => {
     const [product, setProduct] = useState([])
     const [load, setLoad]= useState(true)
-    const {id} = useParams()
+    const {category} = useParams()
 
     useEffect(() => {   
         const getProducts = async () => {
             try {
-                if(id) {
-                    const repuesta = query(collection(db, 'products'), where('category', "==", id));
+                if(category) {
+                    const repuesta = query(collection(db, 'products'), where('category', "==", category));
                     const datos = await getDocs(repuesta);
                     setProduct(datos.docs.map(doc => (
                         {
@@ -42,7 +40,7 @@ const ItemListContainer = () => {
         };
 
         getProducts();
-    }, [id]);
+    }, [category]);
 
 
   return (

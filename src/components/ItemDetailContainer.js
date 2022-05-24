@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail"
 import Loading from "./Loading"
-import { db } from "../firebase/firebaseConfig"
+import { db } from "../firebase/FirebaseConfig"
 import { collection, getDoc, doc} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
@@ -20,7 +20,7 @@ const ItemDetailContainer = () => {
 
             consulta
                 .then((resultado)=>{
-                    setProduct(resultado.data())
+                    setProduct({...resultado.data(), id: resultado.id})
                     setLoad(false)
                 })
                 .catch((error) => {

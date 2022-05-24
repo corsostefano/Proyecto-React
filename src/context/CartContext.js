@@ -1,10 +1,16 @@
-import {createContext, useState} from 'react';
+import {createContext, useState, useEffect} from 'react';
 
 export const CartContext = createContext({});
 
 export const CartProvider = ({ children }) => {
 
-    const [items, setItems] = useState([]);
+  const [items, setItems] = useState(() => {
+    return JSON.parse(localStorage.getItem('items')) || []
+  });
+
+  useEffect (() => {
+    localStorage.setItem('items', JSON.stringify(items))
+  },[items])
 
     const addItem = (item, quantity) => {
       if(!isInCart(item.id)){ 
@@ -13,6 +19,13 @@ export const CartProvider = ({ children }) => {
       }
       console.log("items de CartContext: ", items);
     };
+    const getQuantity = () => {
+      let count = 0
+      items.forEach(prod => {
+          count += prod.quantity
+      })
+      return count
+  }
 
     const isInCart = (id) => {
       return items.some(element => element.item.id === id);
@@ -36,7 +49,14 @@ export const CartProvider = ({ children }) => {
     }
 
     return (
-      <CartContext.Provider value={{ items, setItems, addItem, removeItem, clearAllItems, countItemQuantity }}>
+      <CartContext.Provider value={{ 
+        items, 
+        setItems, 
+        addItem, 
+        getQuantity,
+        removeItem, 
+        clearAllItems, 
+        countItemQuantity }}>
         {children}
       </CartContext.Provider>
     );
