@@ -1,8 +1,8 @@
-import {createContext, useState, useEffect} from 'react';
+import {createContext, useState,useEffect } from 'react';
 
 export const CartContext = createContext({});
 
-export const CartProvider = ({ children }) => {
+export const CartProvider = ({ children}) => {
 
   const [items, setItems] = useState(() => {
     return JSON.parse(localStorage.getItem('items')) || []
@@ -11,14 +11,31 @@ export const CartProvider = ({ children }) => {
   useEffect (() => {
     localStorage.setItem('items', JSON.stringify(items))
   },[items])
-
-    const addItem = (item, quantity) => {
-      if(!isInCart(item.id)){ 
-        setItems([...items, {item: item, quantity: quantity}]);
-        console.log("items de CartContext dentro de IF: ", items);   
+  
+  const addItem = (item, quantity)=>{
+    if(isInCart(item.id)){
+      const newItems = [...items];
+      for(const element of newItems){
+        if(element.item.id === item.id){
+          item.quantity = it.quantity + quantity
+        }
       }
-      console.log("items de CartContext: ", items);
-    };
+      setItems(newItems)
+    }else{
+      setItems([
+        ...items,
+        {
+          item:item,
+          quantity: quantity
+        }
+      ])
+    }
+  }
+
+  const isInCart = (id) => {
+    return items.find(e => e.id === id)
+  }
+
     const getQuantity = () => {
       let count = 0
       items.forEach(prod => {
@@ -26,11 +43,6 @@ export const CartProvider = ({ children }) => {
       })
       return count
   }
-
-    const isInCart = (id) => {
-      return items.some(element => element.item.id === id);
-    }
-
     const removeItem = (id) => {
         let itemAux = [...items];
         itemAux = itemAux.filter(element => element.item.id !== id);
@@ -47,6 +59,11 @@ export const CartProvider = ({ children }) => {
       }
       return count;
     }
+    const formatMoney = (num) => {
+      if (num){
+          return "$ " + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
+        }
+  }
 
     return (
       <CartContext.Provider value={{ 
@@ -56,7 +73,8 @@ export const CartProvider = ({ children }) => {
         getQuantity,
         removeItem, 
         clearAllItems, 
-        countItemQuantity }}>
+        countItemQuantity,
+        formatMoney }}>
         {children}
       </CartContext.Provider>
     );

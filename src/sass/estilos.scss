@@ -1,13 +1,13 @@
-@import "navBars";
+@import "../components/NavBars/navBars.scss";
 @import "root";
-@import "footer";
-@import "itemCount";
-@import "items";
-@import "modal";
-@import "itemList";
-@import "itemDetail";
-@import "cart";
-@import "cartWidget";
+@import "../components/Footer/footer.scss";
+@import "../components/ItemCount/itemCount.scss";
+@import "../components/Item/item.scss";
+@import "../components/ModalItem/modal.scss";
+@import "../components/ItemList/itemList.scss";
+@import "../components/ItemDetail/itemDetail.scss";
+@import "../components/Cart/cart.scss";
+@import "../components/CartWidget/cartWidget.scss";
 
 
 

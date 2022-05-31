@@ -1,5 +1,5 @@
 //Se Importa NavBars
-import NavBars from "./NavBars"
+import NavBars from "../NavBars/NavBars"
 const Header = () => {
     return (
         <header className="header">

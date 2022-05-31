@@ -1,12 +1,13 @@
 
 import { useContext, useState } from "react"
 import { Link } from "react-router-dom"
-import ItemCount from "./ItemCount"
-import { CartContext } from "../context/CartContext"
+import ItemCount from "../ItemCount/ItemCount"
+import { CartContext } from "../../context/CartContext"
+
 
 const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
 
-    const {addItem} = useContext(CartContext)
+    const {addItem, removeItem, formatMoney} = useContext(CartContext)
 
     const [add, setAdd] =useState(false)
 
@@ -14,11 +15,12 @@ const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
       setAdd(!add + quantity)
       addItem({ id, title, price, pictureUrl, description, stock}, quantity )
     }
-    const formatMoney = (num) =>{
-      if (num){
-        return "$ " + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-      }
+
+    const editSelection = () => {
+      removeItem(id)
+      setAdd()
     }
+
   return (
     <>
       <div className="item__detail__container">
@@ -32,7 +34,7 @@ const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
                 <h3>{title}</h3>
               </div>
               <div className="item__detail__columna__info__price">
-                <h5>{formatMoney (price)} </h5>
+                <h5>{ formatMoney (price)} </h5>
               </div>
               <div className="item__detail__columna__info__description">
                 <p>{description}</p>
@@ -53,13 +55,17 @@ const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
               <div className="item__count">
                 {
                   add ?
-                      <p>¡Añadido al Carrito!</p>
+                      <div className="item__container__añadir">
+                         <p>¡Se han añadido {add - 1} unidades al Carrito!</p>
+                         <button className="button__agregar__editar" onClick={ () =>  editSelection()} >Editar</button>
+                      </div>
                       :
                      <ItemCount stock={stock} initial={1} onAdd={onAdd}  />
                 } 
                 <div className="item__container__button__finalizar">
                   <Link  to="/cart"><button className="button__agregar__finalizar" >Comprar Ahora</button></Link>
                 </div>
+                
               </div>
             </div>
           </div>

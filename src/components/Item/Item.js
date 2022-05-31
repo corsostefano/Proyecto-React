@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext"
 
 const Item = ({id,title,price,pictureUrl}) => {
-  const formatMoney = (num) =>{
-    if (num){
-      return "$ " + num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.')
-    }
-  }
+
+  const { formatMoney} =useContext(CartContext);
+  
   return (
       <>
         <article className="item__card">
