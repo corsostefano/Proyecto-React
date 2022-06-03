@@ -1,45 +1,65 @@
-import { Link } from "react-router-dom"
+import { useState } from "react";
+
+import Dropdown from "../Dropdown/Dropdown";
 import CartWidget from "../CartWidget/CartWidget"
+import { Link } from "react-router-dom";
 
+const NavBars = () => {
 
-
-const NavBars = (props) => {
+  const [click, setClick] = useState(false)
+  const [dropdown, setDropdown] = useState(false)
   
+  const handleClick = () => setClick(!click)
 
-  if (props.header){
-    return (
-      <nav className="nav">
-        <div className="nav__container__categorias">
-          <Link to="/usuario">{props.nombre}</Link> 
-        </div>
-        <div className="nav__container__inicio">
-          <Link to="/" className="nav__link__inicio" >Inicio</Link>
-        </div>
-        <div className="nav__container__categorias">
-          <Link to="/category/celulares" className="nav__link__categorias">Celulares</Link>
-          <Link to="/category/camaras" className="nav__link__categorias">Camaras</Link>
-          <Link to="/category/consolas" className="nav__link__categorias">Consolas</Link>
-        </div>
-        <div className="nav__container__cart">
-          <Link to="/cart"><CartWidget/></Link>
-        </div>
-        <div className="nav__container__login">
-          <Link to="/login" className="nav__link__login" >Login</Link>
-        </div>
-      </nav>
-    )
-  }else{
-    return (
-      <nav className="nav">
-        <div className="nav__container__categorias">
-            <Link to="/category//celulares" className="nav__link__categorias">Celulares</Link>
-            <Link to="/category//camaras" className="nav__link__categorias">Camaras</Link>
-            <Link to="/category//consolas" className="nav__link__categorias">Consolas</Link>
-            <Link to="/contactame" className="nav__link__categorias">Contactame</Link>
-            <Link to="/fap" className="nav__link__categorias">faq</Link>
-        </div>
-      </nav>
-    )
+  const closeMobileMenu = () => setClick(false)
+
+  const onMouseEnter = () => {
+    if(window.innerWidth < 960){
+      setDropdown(false)
+    }else{
+      setDropdown(true)
+    }
   }
+  const onMouseLeave = () => {
+    if(window.innerWidth < 960){
+      setDropdown(false)
+    }else{
+      setDropdown(false)
+    }
+  }
+ 
+  return (
+    <>
+      <header>
+        <nav className="navbar">
+          <Link to="/" className="navbar__logo">Ecommerce</Link>
+          <div className="menu__icon" onClick={handleClick}>
+            <span className="material-icons"> {click ? 'close' : 'menu'} </span>
+          </div>
+          
+          <ul className={click ? 'nav__menu active' : "nav__menu"}>
+            <li className="nav__item" onMouseEnter={onMouseEnter}  onMouseLeave={onMouseLeave} >
+              <Link to="/category" className="nav__links categorias" onClick={closeMobileMenu}>Categorias
+                <div><span className="material-icons arrow_drop_down"> arrow_drop_down </span></div>               
+               </Link>
+              {dropdown && <Dropdown/>}
+            </li>
+            <li className="nav__item">
+              <Link to="/cuenta" className="nav__links" onClick={closeMobileMenu}>Cuenta</Link>
+            </li>
+            <li className="nav__item">
+              <Link to="/promociones" className="nav__links" onClick={closeMobileMenu}>Promociones</Link>
+            </li>
+            <li className="nav__item">
+              <Link to="/ayuda" className="nav__links" onClick={closeMobileMenu}>Ayuda</Link>
+            </li>
+          </ul>
+          <div className="nav__container__cart">
+            <Link to="/cart"><CartWidget/></Link>
+          </div>
+        </nav>
+      </header>
+    </>
+  )
 }
 export default NavBars

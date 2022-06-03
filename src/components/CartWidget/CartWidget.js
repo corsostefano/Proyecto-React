@@ -10,7 +10,7 @@ const CartWidget = () => {
           items.length === 0
           ?
           <div>
-            <span className="material-icons">
+            <span className="material-icons shopping_cart">
               shopping_cart
             </span>
           </div>

@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: 'PT Sans', sans-serif;
 }
 html, body, #root{
     height: 100vh;
@@ -10,7 +11,7 @@ html, body, #root{
     display: flex;
     flex-direction: column;
 }
-#root > main, #root > header, #root > footer{
+#root > main, #root > header{
     padding: 1rem;
 }
 #root > main{
@@ -20,7 +21,9 @@ html, body, #root{
     align-items: center;
     justify-content: center;
     background-color: #eeeeee;
+    
 }
+
 a{
     text-decoration: none;
 }

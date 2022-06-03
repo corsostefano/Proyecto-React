@@ -81,3 +81,81 @@
 
     }
 }
+@media screen and (max-width: 960px){
+   
+    .item__detail__columna{
+        display: block;
+        justify-content: center;
+        justify-items: center;
+        align-items: center;
+
+        .item__detail__columna__galeria{
+            width: 360px;
+            overflow: hidden;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+    
+        }
+        .item__detail__columna__galeria > img{
+            width: 300px;
+            border-radius: 5px;
+        }
+        .item__detail__columna__info{
+            width: 341px;
+            border-radius: 10px;
+            padding: 15px;
+            display: block;
+            justify-content: center;
+            text-align: center;
+         
+            .item__detail__columna__info__title{
+                font-size: 22px;
+                padding: 10px;
+            }
+            .item__detail__columna__info__price{
+                font-size: 36px;
+                padding: 10px;
+            }
+        }
+        .item__detail__columna__compra{
+            display: block;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 341px;
+            border-radius: 10px;
+            padding: 15px;
+          
+            .item__detail__columna__envio__icons{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                color: #00a650;
+                line-height: 20.8px;
+            }
+             .item__detail__columna__count{
+                 margin-top: 15px;
+                 .item__detail__columna__count__button__comprar{
+                    width: 100%px ;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    color: #4887ec;
+                    border-color: #4887ec;
+                    border-style: solid;
+                    &:hover{
+                        background-color: #d0e0f9;
+                    }
+                 }
+             }
+    
+    
+        }
+        
+   
+
+    }
+
+}
