@@ -31,7 +31,7 @@ const NavBars = () => {
     <>
       <header>
         <nav className="navbar">
-          <Link to="/" className="navbar__logo">Tech Store .com</Link>
+          <Link to="/" className="navbar__logo">Tech Store</Link>
           <div className="menu__icon" onClick={handleClick}>
             <span className="material-icons"> {click ? 'close' : 'menu'} </span>
           </div>  
@@ -43,13 +43,13 @@ const NavBars = () => {
               {dropdown && <Dropdown/>}
             </li>
             <li className="nav__item">
-              <Link to="/cuenta" className="nav__links" onClick={closeMobileMenu}>Cuenta</Link>
+              <Link to="/cuenta" className="nav__links" onClick={closeMobileMenu}>Crea tu Cuenta</Link>
+            </li>
+            <li className="nav__item">
+              <Link to="/ingresa" className="nav__links" onClick={closeMobileMenu}>Ingresa</Link>
             </li>
             <li className="nav__item">
               <Link to="/promociones" className="nav__links" onClick={closeMobileMenu}>Promociones</Link>
-            </li>
-            <li className="nav__item">
-              <Link to="/ayuda" className="nav__links" onClick={closeMobileMenu}>Ayuda</Link>
             </li>
           </ul>
           <div className="nav__container__cart">

@@ -34,23 +34,23 @@ const Cart = () => {
 
     const objOrder = {
       item: items,
-      buyer: {
-        name: "stefano",
-        phone: "1154656987",
-        email: "stefanocorso6@gmail.com"
-      },
+        buyer: {
+          name: "stefano",
+          phone: "1154656987",
+          email: "stefanocorso6@gmail.com"
+        },
 
       total: countItemQuantity(),
       date: new Date()
     }
     addDoc(collectionRef, objOrder)
-    .then(response => {
-      console.log(response.id)
-    })
+      .then(response => {
+        console.log(response.id)
+      })
      .finally(() => {
-            clearAllItems()
+        clearAllItems()
              
-    })
+      })
 
     addDocToCollection()
 
@@ -169,8 +169,5 @@ const Cart = () => {
         </>
       )
     }
-      
-        
-  
 }
 export default Cart

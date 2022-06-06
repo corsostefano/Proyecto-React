@@ -29,7 +29,7 @@ Utiliza librerías externas las cuales se detallaran más adelante
 
 Esta App requiere la instalación previa de Node.js para poder ejecutarse
 
-$ Cd corso-ecommerce
+$ cd corso-ecommerce
 
 $ npm install
 

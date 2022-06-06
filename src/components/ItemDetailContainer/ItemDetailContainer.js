@@ -6,17 +6,23 @@ import { db } from "../../firebase/FirebaseConfig"
 import { collection, getDoc, doc} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
+
     const [product, setProduct] = useState({})
+
     const [load, setLoad] = useState(true)
+    
     const {id} = useParams()
 
     useEffect(() => {
         const getProductDetails = async () => {
+
             const productoCollecion = collection(db, "products")
+
             const resultadoDelDoc = doc(productoCollecion,id)
           
             const consulta = getDoc(resultadoDelDoc)
-            console.log(consulta)
+
+                console.log(consulta)
 
             consulta
                 .then((resultado)=>{
@@ -47,7 +53,6 @@ const ItemDetailContainer = () => {
                  description={product.description}
                  stock={product.stock}
                 />
-
             </section>
         }
     </article>

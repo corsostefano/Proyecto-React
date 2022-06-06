@@ -28,13 +28,7 @@ const CartWidget = () => {
             </div>
           </div>
         }
-
       </>
-     
     )
   }
   export default CartWidget
-
- /* <span className="material-icons">
-  shopping_cart
-</span>*/

@@ -1,0 +1,25 @@
+.container__cuenta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 241, 241);
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+
+    .container__cuenta__descripcion{
+        display: flexbox;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+
+        .container__cuenta__button{
+            padding: 20px;
+        }
+    }
+    .container__cuenta__descripcion > h2{
+        padding: 15px;
+    }
+}

@@ -1,7 +1,9 @@
 import Item from "../Item/Item"
 
 const ItemList = ({listProduct}) => {
+
   return (
+    
     <section className="list__container">
         {listProduct.map(product => (
             <div key={product.id}>
@@ -12,7 +14,6 @@ const ItemList = ({listProduct}) => {
                     price={product.price}
                     pictureUrl={product.pictureUrl}
                 />
-
             </div>
         ))}        
     </section>

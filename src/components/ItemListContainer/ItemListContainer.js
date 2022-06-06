@@ -7,8 +7,11 @@ import { collection, getDocs, query, where } from 'firebase/firestore';
 
 
 const ItemListContainer = () => {
+
     const [product, setProduct] = useState([])
+
     const [load, setLoad]= useState(true)
+    
     const {category} = useParams()
 
     useEffect(() => {   
@@ -41,7 +44,6 @@ const ItemListContainer = () => {
 
         getProducts();
     }, [category]);
-
 
   return (
       

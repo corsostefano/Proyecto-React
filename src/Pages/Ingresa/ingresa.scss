@@ -1,0 +1,25 @@
+.container__ingresar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 241, 241);
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+
+    .container__ingresar__input{
+        display: flexbox;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 5px;
+
+        .container__ingresar__formulario{
+            display: block;
+            padding: 20px;
+            
+        }
+    }
+   
+}

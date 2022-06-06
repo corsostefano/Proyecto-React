@@ -4,11 +4,10 @@ import { Link } from "react-router-dom"
 import ItemCount from "../ItemCount/ItemCount"
 import { CartContext } from "../../context/CartContext"
 
-
 const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
 
     const {addItem, removeItem, formatMoney} = useContext(CartContext)
-
+    
     const [add, setAdd] =useState(false)
 
     const onAdd = (quantity) =>{
@@ -65,7 +64,6 @@ const ItemDetail = ({ id, title, price, pictureUrl, description, stock }) => {
                 <div className="item__container__button__finalizar">
                   <Link  to="/cart"><button className="button__agregar__finalizar" >Comprar Ahora</button></Link>
                 </div>
-                
               </div>
             </div>
           </div>

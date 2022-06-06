@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom"
 import Categorias from "../../Pages/Categorias/Categorias"
 import Cuenta from "../../Pages/Cuenta/Cuenta"
 import Promociones from "../../Pages/Promociones/Promociones"
-import Ayuda from "../../Pages/Ayuda/Ayuda"
+import Ingresa from "../../Pages/Ingresa/Ingresa"
 
 const Main = () => {
   return (
@@ -17,7 +17,7 @@ const Main = () => {
         <Route path="/category" element={<Categorias/>}/>
         <Route path="/cuenta" element={<Cuenta/>}/>
         <Route path="/promociones" element={<Promociones/>}/>
-        <Route path="/ayuda" element={<Ayuda/>}/>
+        <Route path="/ingresa" element={<Ingresa/>}/>
         <Route path="/cart" element={<Cart/>} />
       </Routes>     
     </main>

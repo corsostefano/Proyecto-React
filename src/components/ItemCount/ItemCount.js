@@ -22,14 +22,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
 
         return (
             <>
-                    <div className="item__count__barra">
-                        <button className="item__count__button material-icons" onClick={restaCount}>remove</button>
-                        <h1>{count}</h1>
-                        <button className="item__count__button material-icons" onClick={sumaCount}>add</button>
-                    </div>
-                    <div className="item__container__button__agregar">
-                            <button className="button__agregar__carrito" onClick={handleClick_add}> Agregar al carrito</button>
-                    </div>
+                <div className="item__count__barra">
+                    <button className="item__count__button material-icons" onClick={restaCount}>remove</button>
+                    <h1>{count}</h1>
+                    <button className="item__count__button material-icons" onClick={sumaCount}>add</button>
+                </div>
+                <div className="item__container__button__agregar">
+                    <button className="button__agregar__carrito" onClick={handleClick_add}> Agregar al carrito</button>
+                </div>
                 
             </>
           )
