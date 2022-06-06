@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import Dropdown from "../Dropdown/Dropdown";
 import CartWidget from "../CartWidget/CartWidget"
 import { Link } from "react-router-dom";
@@ -15,7 +14,7 @@ const NavBars = () => {
 
   const onMouseEnter = () => {
     if(window.innerWidth < 960){
-      setDropdown(false)
+      setDropdown(true)
     }else{
       setDropdown(true)
     }
@@ -32,11 +31,10 @@ const NavBars = () => {
     <>
       <header>
         <nav className="navbar">
-          <Link to="/" className="navbar__logo">Ecommerce</Link>
+          <Link to="/" className="navbar__logo">Tech Store .com</Link>
           <div className="menu__icon" onClick={handleClick}>
             <span className="material-icons"> {click ? 'close' : 'menu'} </span>
-          </div>
-          
+          </div>  
           <ul className={click ? 'nav__menu active' : "nav__menu"}>
             <li className="nav__item" onMouseEnter={onMouseEnter}  onMouseLeave={onMouseLeave} >
               <Link to="/category" className="nav__links categorias" onClick={closeMobileMenu}>Categorias

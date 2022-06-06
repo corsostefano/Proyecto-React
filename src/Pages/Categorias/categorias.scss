@@ -1,0 +1,36 @@
+.container__categorias__principal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(243, 241, 241);
+    width: 90%;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+        .container__categorias__listado {
+            display: flexbox;
+       
+            .container__categorias__listado__secciones {
+                padding-top: 15px;
+               .categorias__img{
+                   width: 600px;
+                   border-radius: 5px;
+               }
+            }
+
+        }
+    
+}
+@media screen and (max-width: 960px){
+    .container__categorias__principal{
+            .container__categorias__listado {
+                .container__categorias__listado__secciones {
+                   .categorias__img{
+                       width: 300px;
+                       border-radius: 5px;
+                   }
+                }
+    
+            }
+        
+    }
+}

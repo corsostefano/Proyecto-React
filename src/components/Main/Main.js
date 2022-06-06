@@ -2,10 +2,10 @@ import ItemListContainer from "../ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer"
 import Cart from "../Cart/Cart"
 import { Route, Routes } from "react-router-dom"
-import Categorias from "../Pages/Categorias/Categorias"
-import Cuenta from "../Pages/Cuenta/Cuenta"
-import Promociones from "../Pages/Promociones/Promociones"
-import Ayuda from "../Pages/Ayuda/Ayuda"
+import Categorias from "../../Pages/Categorias/Categorias"
+import Cuenta from "../../Pages/Cuenta/Cuenta"
+import Promociones from "../../Pages/Promociones/Promociones"
+import Ayuda from "../../Pages/Ayuda/Ayuda"
 
 const Main = () => {
   return (

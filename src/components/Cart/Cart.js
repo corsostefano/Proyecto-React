@@ -25,6 +25,7 @@ const Cart = () => {
     }
 
     const {items, setItems, removeItem, clearAllItems,countItemQuantity, formatMoney} =useContext(CartContext);
+    
     let acumuladorTotal = 0;
 
     const generateOrder = () => {
@@ -60,14 +61,10 @@ const Cart = () => {
       showConfirmButton: false,
       timer: 2000
     })
-    
-
   }
     useEffect(() => {
       setItems(items); 
     },[items, setItems]);
-
-
     if(items.length !== 0){
       return(
         <>
@@ -103,7 +100,7 @@ const Cart = () => {
                     items.map((element, index) => (
                       <tr key={index}>
                         <td className="td__producto">
-                          <img width="120" height="130" src={element.item.pictureUrl} alt={element.item.title}/>
+                          <img src={element.item.pictureUrl} alt={element.item.title}/>
                           {element.item.title}
                         </td>
                         <td>
@@ -120,7 +117,7 @@ const Cart = () => {
                         </td>
                         <td>
                           <button onClick={() => removeItem(element.item.id)} >
-                            <span >Eliminar</span>
+                            <span className="material-icons" >clear</span>
                           </button>
                         </td>
 

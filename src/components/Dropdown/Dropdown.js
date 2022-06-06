@@ -10,7 +10,7 @@ const Dropdown = () => {
 
   return (
     <>
-        <span class="material-icons arrow_drop_up ">arrow_drop_up</span>
+        <span className="material-icons arrow_drop_up ">arrow_drop_up</span>
         <ul onClick={handleClick} className={click ? 'dropdown__menu clicked' : 'dropdown__menu'} >
           {MenuItems.map((item, index) => {
             return (
