@@ -7,8 +7,9 @@ Proyecto Final E-commerce, Curso de React- Js de Coder House, comisión 37165 de
 
 ## Contenido
 
-.Proyecto de Rama Única Main.
-.Proyecto en Desarrollo ( actualmente se encuentra incompleto para su comercialización, carece de        características de backend)
+Proyecto de Rama Única Main.
+
+Proyecto en Desarrollo ( actualmente se encuentra incompleto para su comercialización, carece de        características de backend)
 
 
 
@@ -20,14 +21,16 @@ El objetivo de este proyecto es crear una tienda de comercio electrónico “E-c
 
 Proyecto desarrollado en React Js (biblioteca Javascript de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página.)
 
-. React Js App creada con Create React App
-. Utiliza librerías externas las cuales se detallaran más adelante 
+React Js App creada con Create React App
+
+Utiliza librerías externas las cuales se detallaran más adelante 
 
 ## Instalación
 
 Esta App requiere la instalación previa de Node.js para poder ejecutarse
 
 $ Cd corso-ecommerce
+
 $ npm install
 
 Para clonar este repositorio debe seguir las siguientes instrucciones:
