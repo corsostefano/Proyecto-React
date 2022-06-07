@@ -75,4 +75,19 @@ Para la ejecución de este proyecto se deberá dirigirse a la consola del Visual
 Una vez ejecutado la aplicación se ejecutara en el puerto http://localhost:3000/ de tu navegador
 
 
+## Avance de la App
 
+![](https://i.ibb.co/spTYGvX/1.png)
+
+![](https://i.ibb.co/C2wvZgD/2.png)
+
+![](https://i.ibb.co/VSkJp6Y/3.png)
+
+
+## Demo de la App 
+
+https://corso-ecommerce.web.app/
+
+## Hosting
+
+Para subir la demo de esta app se a utilizado el servicio de hosting de Firebase
